@@ -1,0 +1,87 @@
+<div>
+  <div class="row">
+    <div class="col-12">
+        <div class="card">
+            <div class="card-body">
+                <h5 class="card-title">Search Ruc:</h5>
+                <hr>
+                <div class="row">
+                    <div class="col-md-3">
+                        <div class="form-group">
+                            <label></label>
+                            <input type="text" class="form-control" [(ngModel)]="sunatFilter.ruc" (keyup.enter)="searchRuc()">
+                        </div>
+                    </div>
+                    <div class="col-md-9">
+                      <div class="form-group mt-4">
+                        <button class="btn btn-secondary mr-2" (click)="clearForm()">
+                            <i class="fa fa-undo"></i>&nbsp;Limpiar
+                        </button>
+
+                        <button class="btn btn-primary" (click)="searchRuc()">
+                            <i class="fa fa-search"></i>&nbsp;Buscar
+                        </button>
+                    </div>
+                  </div>
+                </div>
+            </div>
+        </div>
+    </div>
+  </div>
+  <br>
+  <div class="row">
+    <div class="col-12">
+        <div class="card">
+            <div class="card-body">
+                <h5 class="card-title">Persons</h5>
+                <hr>
+
+                <div class="table-rep-plugin mt-3">
+                    <div class="table-responsive mb-0" data-pattern="priority-columns">
+                        <table id="tech-companies-1" class="table table-striped table-bordered">
+                            <thead>
+                                <tr>
+                                    <th>Ruc</th>
+                                    <th>Business Name</th>
+                                    <th>Status</th>
+                                    <th>Departament</th>
+                                    <th>Created At</th>
+                                    <th class="accion">Options</th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                <ng-container *ngIf="data">
+                                    <tr *ngFor="let item of data | paginate: pagination">
+                                        <td align="center">{{item.ruc}}</td>
+                                        <td align="left">{{item.razon_social}}</td>
+                                        <td align="center">{{item.estado}}</td>
+                                        <td align="left">{{item.departamento}}</td>
+                                        <td align="center">{{item.created_at | datetime }}</td>
+                                        <td class="text-center">
+                                            <div class="table-actions">
+                                                <button title="View" (click)="showForm(item)"
+                                                    class="btn btn-info btn-sm mr-2 rounded-circle">
+                                                    <i class="fa fa-eye text-white"></i>
+                                                </button>
+                                            </div>
+                                        </td>
+                                    </tr>
+                                </ng-container>
+                            </tbody>
+                        </table>
+                        <ng-container *ngIf="loader.isBusy()">
+                            <app-loading [size]="0"></app-loading>
+                        </ng-container>
+                        <app-paginator [data]="pagination" [filter]="filter" [isBusy]="loader.isBusy()"
+                            (changePerPage)="getData()" (changePage)="pageChanged($event)">
+                        </app-paginator>
+                    </div>
+
+                </div>
+
+            </div>
+        </div>
+    </div>
+  </div>
+
+</div>

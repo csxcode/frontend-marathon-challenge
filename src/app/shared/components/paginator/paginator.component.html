@@ -1,0 +1,19 @@
+<div class="row paginator w-100" *ngIf="data != undefined">
+  <div class="col-md-12 text-center" *ngIf="!data.totalItems && !isBusy">
+    <p> No se encontraron registros que coincidan con la búsqueda</p>
+  </div>
+  <div class="col-md-6 d-flex perpage">
+    <ng-container *ngIf="filter && filter.limit">
+      <p class="my-auto" for="paginator" style="color: #495057; font-weight: 500;">Total: {{data.totalItems}} registro(s)</p>
+    </ng-container>
+  </div>
+  <div class="col-md-6 text-right" *ngIf="data.totalItems > 0">
+    <pagination-controls
+      [previousLabel]="''"
+      [nextLabel]="''"
+      [responsive]="true"
+      (pageChange)="changePage.emit($event)">
+    </pagination-controls>
+  </div>
+
+</div>

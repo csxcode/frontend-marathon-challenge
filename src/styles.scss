@@ -1,0 +1,43 @@
+/* You can add global styles to this file, and also import other style files */
+
+/* Importing Bootstrap SCSS file. */
+@import './assets/scss/app';
+
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    font-family: 'Poppins', sans-serif;
+    color: var(--text-color);
+}
+
+:root {
+    font-size: 14px;
+
+    --primary-color: #0B3C70;
+    --primary-green-strong: #5CB85C;
+    --primary-green-light: #eef7e3;
+    --text-color: #475F7B;
+
+    --blue: #5A8DEE;
+    --red: #FF5B5C;
+    --yellow: #FEBD39;
+    --green: #338261;
+    --cyan: #00C7E6;
+    --white: #fff;
+    --gray: #A6ACBE;
+    --gray-dark: #343a40;
+
+    --primary: #5A8DEE;
+    --secondary: #475F7B;
+    --success: #0B3C70;
+    --info: #00C7E6;
+    --warning: #FFCE6A;
+    --danger: #FF5B5C;
+    --light: #f8f9fa;
+    --dark: #343a40;
+}

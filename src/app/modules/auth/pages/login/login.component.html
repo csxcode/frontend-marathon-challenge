@@ -1,0 +1,63 @@
+<div class="container-fluid container-fluid-auth">
+	<div class="row">
+		<div class="col-12 col-md-6 col-lg-5 p-0">
+			<form>
+				<div class="dp-login">
+
+					<p class="mt-4 title">Sunat App</p>
+					<h4>¡Welcome!</h4>
+
+					<app-alert-messages [message]="error"></app-alert-messages>
+
+					<form class="mx-auto" [formGroup]="form" novalidate (ngSubmit)="login()">
+						<div class="form-group my-4">
+							<label for="username">Username</label>
+							<app-control-messages [control]="form.get('username')">
+								<div class="input-group align-items-center">
+									<input formControlName="username" type="text" class="form-control" id="username" />
+									<i class="fa fa-question-circle-o" tooltip="Help message in progress :D"></i>
+								</div>
+							</app-control-messages>
+						</div>
+						<div class="form-group my-4">
+							<label for="password">Password</label>
+							<app-control-messages [control]="form.get('password')">
+								<div class="input-group">
+									<input formControlName="password" [type]="isTextFieldType ? 'text' : 'password'"
+										class="form-control custom_password" id="password" />
+									<div class="input-group-append">
+										<span class="input-group-text">
+											<i class="fa"
+												[ngClass]="{'fa-eye-slash': !isTextFieldType,'fa-eye': isTextFieldType}"
+												(click)="isTextFieldType = !isTextFieldType"></i>
+										</span>
+									</div>
+								</div>
+							</app-control-messages>
+						</div>
+
+						<div class="text-center">
+							<button type="submit" class="btn btn-login btn-success w-75" [disabled]="isLoading"
+								(click)="login()">
+								<span class="bouncingLoader" *ngIf="isLoading">
+									<span></span>
+								</span>
+								<span *ngIf="!isLoading">Log In</span>
+							</button>
+						</div>
+					</form>
+				</div>
+			</form>
+		</div>
+		<div class="col-12 col-md-6 col-lg-7 p-0">
+			<div class="d-none d-md-block">
+				<div class="i_logos">
+					<img src="assets/images/logo.png" draggable="false" alt="logo">
+				</div>
+				<div class="bg_image fade-in">
+					<img src="assets/images/login.png" draggable="false" alt="login">
+				</div>
+			</div>
+		</div>
+	</div>
+</div>

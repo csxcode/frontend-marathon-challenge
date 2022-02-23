@@ -1,0 +1,15 @@
+.modal-content{
+  .modal-header{
+    background: #001d4a;
+    h5,.close{
+      color: #fff !important;
+    }
+  }
+}
+@media (min-width: 576px){
+  .modal-medium {
+    max-width: 600px !important;
+  }
+}
+
+

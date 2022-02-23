@@ -1,0 +1,45 @@
+<div class="vertical-menu">
+    <div data-simplebar class="h-100">
+        <div id="sidebar-menu">
+            <!-- Left Menu Start -->
+            <ul class="metismenu list-unstyled" id="side-menu">
+                <li class="menu-title">Menu</li>
+
+                <ng-container *ngIf="modules.length > 0">
+                    <li *ngFor="let module of modules">
+                        <ng-container *ngIf="module.has_child; else singleMenu">
+                            <a
+                                href="javascript: void(0);"
+                                class="has-arrow waves-effect"
+                                (click)="toggle($event)"
+                            >
+                                <i class="mdi {{ module.icon }}"></i>
+                                <span>{{ module.name }}</span>
+                            </a>
+                            <ul class="sub-menu mm-collapse" aria-expanded="false">
+                                <li *ngFor="let sub of module.children" routerLinkActive="active">
+                                    <a
+                                        href="scripts:;"
+                                        routerLink="{{ sub.url }}"
+                                        routerLinkActive="active"
+                                        >{{ sub.name }}</a
+                                    >
+                                </li>
+                            </ul>
+                        </ng-container>
+                        <ng-template #singleMenu>
+                            <a
+                                routerLink="{{ module.url }}"
+                                class="waves-effect waves-dark"
+                                routerLinkActive="active"
+                            >
+                                <i class="mdi {{ module.icon }}"></i>
+                                <span class="hide-menu">{{ module.name }}</span>
+                            </a>
+                        </ng-template>
+                    </li>
+                </ng-container>
+            </ul>
+        </div>
+    </div>
+</div>

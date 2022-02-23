@@ -1,0 +1,40 @@
+<header id="page-topbar">
+    <div class="navbar-header">
+        <div class="d-flex">
+            <!-- LOGO -->
+            <div id="navbar-brand-box" class="navbar-brand-box">
+                <a href="scripts:;" class="logo logo-dark" routerLink="">
+                    <span>
+                        <img id="header_logo" src="assets/images/logo.png" alt="" class="large-logo">
+                    </span>
+                </a>
+            </div>
+
+            <button type="button" class="btn btn-sm px-3 font-size-16 header-item waves-effect" id="vertical-menu-btn"
+                (click)="toggleMenu()">
+                <i class="fa fa-fw fa-bars"></i>
+            </button>
+
+        </div>
+
+        <div class="d-flex">
+
+            <div class="dropdown d-inline-block" (click)="toggleDropdown()">
+                <button type="button" class="btn header-item waves-effect" id="page-header-user-dropdown"
+                    data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                    <img class="rounded-circle header-profile-user" src="assets/images/user.png" alt="user">
+                    <span class="d-none d-xl-inline-block ml-1">{{user.full_name}}</span>
+                    <i class="mdi mdi-chevron-down d-none d-xl-inline-block"></i>
+                </button>
+                <div class="dropdown-menu dropdown-menu-right" [ngClass]="{'show' : showDropDown}">
+                    <span class="dropdown-item text-center" href="javascript:void();" style="text-transform:capitalize;">{{user.role_name}}</span>
+                    <div class="dropdown-divider"></div>
+                    <a class="dropdown-item text-danger" href="javascript:void();" (click)="onClickLogout()">
+                      <i class="bx bx-power-off font-size-16 align-middle mr-1 text-danger"></i> Salir
+                    </a>
+                </div>
+            </div>
+
+        </div>
+    </div>
+</header>

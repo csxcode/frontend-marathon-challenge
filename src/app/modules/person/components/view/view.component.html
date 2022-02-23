@@ -1,0 +1,99 @@
+<div>
+  <div class="modal-header">
+    <h5 class="modal-title mt-0">View Person</h5>
+    <button type="button" class="close outline-none" aria-label="Close" (click)="bsModalRef.hide()">
+      <span aria-hidden="true">×</span>
+    </button>
+  </div>
+
+  <div class="modal-body">
+
+    <div class="row">
+      <div class="col-md-3">
+        <div class="form-group">
+          <label>Date</label>
+          <input type="text" class="form-control text-center" disabled value="{{model.created_at | datetime}}">
+        </div>
+      </div>
+
+      <div class="col-md-3">
+        <div class="form-group">
+          <label>Ruc</label>
+          <input type="text" class="form-control text-left" disabled value="{{model.ruc}}">
+        </div>
+      </div>
+
+      <div class="col-md-6">
+        <div class="form-group">
+          <label>Business Name</label>
+          <input type="text" class="form-control text-center" disabled value="{{model.razon_social}}">
+        </div>
+      </div>
+
+    </div>
+
+    <div class="row">
+      <div class="col-md-12">
+        <div class="form-group">
+          <label>Address</label>
+          <textarea class="form-control" disabled value="{{model.direccion}}" rows="4"></textarea>
+        </div>
+      </div>
+    </div>
+
+
+    <div class="row">
+      <div class="col-md-3">
+        <div class="form-group">
+          <label>Ubigeo</label>
+          <input type="text" class="form-control text-center" disabled value="{{model.ubigeo}}">
+        </div>
+      </div>
+    </div>
+
+    <div class="row">
+      <div class="col-md-3">
+        <div class="form-group">
+          <label>Departamento</label>
+          <input type="text" class="form-control text-center" disabled value="{{model.departamento}}">
+        </div>
+      </div>
+
+      <div class="col-md-5">
+        <div class="form-group">
+          <label>Provincia</label>
+          <input type="text" class="form-control text-center" disabled value="{{model.provincia}}">
+        </div>
+      </div>
+
+      <div class="col-md-4">
+        <div class="form-group">
+          <label>Distrito</label>
+          <input type="text" class="form-control text-center" disabled value="{{model.distrito}}">
+        </div>
+      </div>
+
+    </div>
+
+    <div class="row">
+      <div class="col-md-4">
+        <div class="form-group">
+          <label>Status</label>
+          <input type="text" class="form-control text-center" disabled value="{{model.estado}}">
+        </div>
+      </div>
+
+      <div class="col-md-4">
+        <div class="form-group">
+          <label>Created At</label>
+          <input type="text" class="form-control text-left" disabled value="{{model.created_at | datetime: 'DD/MM/YYYY hh:mm A'}}">
+        </div>
+      </div>
+
+    </div>
+
+    <div class="modal-footer pt-2">
+      <button type="button" class="btn btn-secondary" (click)="bsModalRef.hide()">Close</button>
+    </div>
+  </div>
+</div>
